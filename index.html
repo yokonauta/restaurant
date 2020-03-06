@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<title>Cafe Cuernavaca</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('images/cafe.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.w3-modal{
+	z-index:3;
+	display:none;
+	padding-top:100px;
+	position:fixed;
+	left:0;top:0;
+	width:100%;
+	height:100%;
+	overflow:auto;
+	background-color:rgb(0,0,0);
+	background-color:rgba(0,0,0,0.4);/*transparent*/
+	color:#000;
+}
+.w3-modal-content{
+	margin:auto;
+	background-color:#fff;
+	position:relative;
+	padding:0;outline:0;
+	width:600px
+}
+.w3-closebtn{
+	text-decoration:none;
+	float:right;
+	font-size:24px;
+	font-weight:bold;
+	color:inherit
+}
+
+.w3-btn {
+	background-color:gray;
+	color:white;
+	border-radius:10px;
+
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-topmiddle w3-xxlarge w3-padding-xxlarge">
+    <p>Caf&eacute; Cuernavaca</p>
+  </div>
+  <div class="w3-display-middle w3-padding-jumbo w3-xlarge">
+    <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-btn w3-hover-light-grey">CARTE</button></p>
+    <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-btn w3-hover-light-grey">CONTACT</button></p>
+  </div>
+  <div class="w3-display-bottomleft w3-padding-jumbo">
+    <p class="w3-xlarge"></p>
+    <p class="w3-large"></p>
+  </div>
+</div>
+
+<!-- Menu Modal -->
+<div id="menu" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom"  style="width:70%">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('menu').style.display='none'" class="w3-closebtn w3-xxlarge w3-hover-text-grey">x</span>
+      <h1>Boissons</h1>
+    </div>
+    <div class="w3-container">
+      <h5>Espresso&nbsp;(Cuba,French,Italy)&nbsp;2.50 &euro;</h5>
+      <h5>Caf&eacute; au lait&nbsp;3.50 &euro;</h5>
+      <h5>Thé jasmin&nbsp;1.00 &euro;</h5>
+    </div>
+    <div class="w3-container w3-black">
+      <h1>Plat</h1>
+    </div>
+    <div class="w3-container">
+      <h5>Club sandwich &nbsp;22,50 &euro;</h5>
+      <h5>Jambon beurree &nbsp;19,50 &euro;</h5>
+      <h5>Emmenthal bBeurrre &nbsp;19,50 &euro;</h5>
+      <h5>Soupe &aacute; l'ognion gratinée &nbsp;14,50 &euro;</h5>
+      <h5>Gazpacho &nbsp;15,00 &euro;</h5>
+    </div>
+    <div class="w3-container w3-black">
+      <h1>G&acirc;teau</h1>
+    </div>
+    <div class="w3-container">
+      <h5>Coupe du glacier &nbsp;12.50&euro;</h5>
+      <h5>Vanilla cr&egrave;m br&ucirc;l&eacute;e &nbsp;12.00&euro;</h5>
+      <h5>Baba au rhum, cr&egrave;me fouett&eacute;e &nbsp;14.00&euro;</h5>
+      <h5>Cr&ecirc;pes flamb&eacute;es &nbsp;15.50&euro;</h5>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('contact').style.display='none'" class="w3-closebtn w3-xxlarge w3-hover-text-grey">x</span>
+      <h1>Contact</h1>
+    </div>
+    <div class="w3-container">
+		<p><b>Contactz-nous:</b></p>
+		<p class="w3-text-blue-grey w3-large"><b>Tel: <a href="tel:07068827201">+33 7 68 82 XX XX</a></b></p>
+		<p class="w3-text-blue-grey w3-large"><b>Email: <a href="mailto:yokopalmier@gmail.com">info@swdevelop.jp</a></b></p>
+    </div>
+  </div>
+</div>
+
+	<p><div id="googleMap"  class="w3-normal" style="width:100%;height:400px;"></div></p>
+    <p>powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+	
+	
+<!-- Add Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+// Google Map Location
+var myCenter = new google.maps.LatLng(18.932864, -99.228832);
+
+function initialize() {
+var mapProp = {
+  center: myCenter,
+  zoom: 15,
+  scrollwheel: false,
+  draggable: false,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position: myCenter,
+  draggable: true,
+    animation: google.maps.Animation.DROP,
+});
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+</body>
+</html>
+
+
